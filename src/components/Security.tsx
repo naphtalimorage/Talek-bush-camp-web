@@ -41,16 +41,16 @@ const Security = () => {
   ];
 
   return (
-    <section id="security" className="py-12 sm:py-16 lg:py-20 bg-gray-900 text-white">
+    <section id="security" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <Shield className="h-8 w-8 sm:h-10 sm:w-10 text-amber-400" />
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
+            <Shield className="h-8 w-8 sm:h-10 sm:w-10 text-amber-600" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
               Your Safety is Our Priority
             </h2>
           </div>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Experience the wild beauty of Masai Mara with complete peace of mind. Our comprehensive 
             security measures ensure you can focus on creating unforgettable memories.
           </p>
@@ -105,16 +105,16 @@ const Security = () => {
         {/* Security Features */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {securityFeatures.map((feature, index) => (
-            <div key={index} className="bg-gray-800 rounded-lg p-6 hover:bg-gray-700 transition-colors">
+            <div key={index} className="bg-gray-50 rounded-lg p-6 hover:bg-gray-100 transition-colors shadow-lg">
               <div className="bg-amber-600 rounded-lg p-3 w-fit mb-4">
                 <feature.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-lg font-bold mb-3">{feature.title}</h3>
-              <p className="text-gray-300 text-sm mb-4">{feature.description}</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">{feature.title}</h3>
+              <p className="text-gray-600 text-sm mb-4">{feature.description}</p>
               <ul className="space-y-2">
                 {feature.details.map((detail, idx) => (
-                  <li key={idx} className="flex items-center space-x-2 text-xs text-gray-400">
-                    <div className="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></div>
+                  <li key={idx} className="flex items-center space-x-2 text-xs text-gray-500">
+                    <div className="w-1.5 h-1.5 bg-amber-600 rounded-full flex-shrink-0"></div>
                     <span>{detail}</span>
                   </li>
                 ))}
@@ -124,15 +124,15 @@ const Security = () => {
         </div>
 
         {/* Safety Measures */}
-        <div className="bg-gray-800 rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16">
-          <h3 className="text-2xl sm:text-3xl font-bold text-center mb-8">
+        <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 mb-12 sm:mb-16 shadow-lg">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-8">
             Comprehensive Safety Measures
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {safetyMeasures.map((measure, index) => (
-              <div key={index} className="flex items-start space-x-3 p-4 bg-gray-700 rounded-lg">
-                <measure.icon className="h-5 w-5 text-green-400 flex-shrink-0 mt-0.5" />
-                <span className="text-gray-300 text-sm">{measure.text}</span>
+              <div key={index} className="flex items-start space-x-3 p-4 bg-white rounded-lg shadow-sm">
+                <measure.icon className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700 text-sm">{measure.text}</span>
               </div>
             ))}
           </div>
@@ -140,52 +140,52 @@ const Security = () => {
 
         {/* Emergency Protocols */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-          <div className="bg-red-900/30 border border-red-700 rounded-lg p-6 sm:p-8">
+          <div className="bg-red-50 border border-red-200 rounded-lg p-6 sm:p-8 shadow-lg">
             <div className="flex items-center space-x-3 mb-4">
-              <AlertTriangle className="h-6 w-6 text-red-400" />
-              <h3 className="text-xl font-bold text-red-400">Emergency Protocols</h3>
+              <AlertTriangle className="h-6 w-6 text-red-600" />
+              <h3 className="text-xl font-bold text-red-700">Emergency Protocols</h3>
             </div>
-            <div className="space-y-4 text-sm text-gray-300">
+            <div className="space-y-4 text-sm text-gray-700">
               <div>
-                <h4 className="font-semibold text-white mb-2">Wildlife Encounters</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">Wildlife Encounters</h4>
                 <p>Immediate escort to safe areas, wildlife deterrent procedures, and ranger communication.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-white mb-2">Medical Emergencies</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">Medical Emergencies</h4>
                 <p>On-site first aid, helicopter evacuation coordination, and hospital transfer arrangements.</p>
               </div>
               <div>
-                <h4 className="font-semibold text-white mb-2">Severe Weather</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">Severe Weather</h4>
                 <p>Safe room protocols, weather monitoring, and guest relocation procedures.</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-green-900/30 border border-green-700 rounded-lg p-6 sm:p-8">
+          <div className="bg-green-50 border border-green-200 rounded-lg p-6 sm:p-8 shadow-lg">
             <div className="flex items-center space-x-3 mb-4">
-              <Phone className="h-6 w-6 text-green-400" />
-              <h3 className="text-xl font-bold text-green-400">24/7 Emergency Contacts</h3>
+              <Phone className="h-6 w-6 text-green-600" />
+              <h3 className="text-xl font-bold text-green-700">24/7 Emergency Contacts</h3>
             </div>
-            <div className="space-y-4 text-sm text-gray-300">
+            <div className="space-y-4 text-sm text-gray-700">
               <div className="flex justify-between items-center">
                 <span>Camp Security:</span>
-                <span className="font-mono text-white">*911</span>
+                <span className="font-mono text-gray-900">*911</span>
               </div>
               <div className="flex justify-between items-center">
                 <span>Medical Emergency:</span>
-                <span className="font-mono text-white">*999</span>
+                <span className="font-mono text-gray-900">*999</span>
               </div>
               <div className="flex justify-between items-center">
                 <span>Kenya Wildlife Service:</span>
-                <span className="font-mono text-white">*800</span>
+                <span className="font-mono text-gray-900">*800</span>
               </div>
               <div className="flex justify-between items-center">
                 <span>Camp Management:</span>
-                <span className="font-mono text-white">+254 123 456 789</span>
+                <span className="font-mono text-gray-900">+254 123 456 789</span>
               </div>
             </div>
-            <div className="mt-6 p-4 bg-green-800/50 rounded-lg">
-              <p className="text-xs text-green-200">
+            <div className="mt-6 p-4 bg-green-100 rounded-lg">
+              <p className="text-xs text-green-800">
                 Emergency buttons are installed in all accommodation units for immediate assistance.
               </p>
             </div>
@@ -194,10 +194,10 @@ const Security = () => {
 
         {/* Security Certification */}
         <div className="mt-12 sm:mt-16 text-center">
-          <div className="bg-gray-800 rounded-lg p-6 sm:p-8 inline-block">
-            <Lock className="h-8 w-8 text-amber-400 mx-auto mb-4" />
-            <h3 className="text-lg font-bold mb-2">Security Certified</h3>
-            <p className="text-gray-300 text-sm max-w-md">
+          <div className="bg-gray-50 rounded-lg p-6 sm:p-8 inline-block shadow-lg">
+            <Lock className="h-8 w-8 text-amber-600 mx-auto mb-4" />
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Security Certified</h3>
+            <p className="text-gray-600 text-sm max-w-md">
               Our security protocols are approved by Kenya Wildlife Service and meet international 
               safari camp safety standards.
             </p>
