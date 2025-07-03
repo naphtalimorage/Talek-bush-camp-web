@@ -1,14 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Menu, X } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+  const navigationItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'services', label: 'Accommodations' },
+    { id: 'security', label: 'Security' },
+    { id: 'gallery', label: 'Gallery' },
+    { id: 'booking', label: 'Book Now' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  // Track active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navigationItems.map(item => item.id);
+      const scrollPosition = window.scrollY + 100; // Offset for header height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    // Set initial active section
+    handleScroll();
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
+    setActiveSection(sectionId);
   };
+
+  const isActive = (sectionId: string) => activeSection === sectionId;
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50">
@@ -23,27 +62,22 @@ const Header = () => {
           </div>
 
           <nav className="hidden lg:flex space-x-8">
-            <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
-              Home
-            </button>
-            <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
-              About
-            </button>
-            <button onClick={() => scrollToSection('services')} className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
-              Accommodations
-            </button>
-            <button onClick={() => scrollToSection('security')} className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
-              Security
-            </button>
-            <button onClick={() => scrollToSection('gallery')} className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
-              Gallery
-            </button>
-            <button onClick={() => scrollToSection('booking')} className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
-              Book Now
-            </button>
-            <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-amber-600 transition-colors font-medium">
-              Contact
-            </button>
+            {navigationItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative font-medium transition-all duration-300 ${
+                  isActive(item.id)
+                    ? 'text-amber-600'
+                    : 'text-gray-700 hover:text-amber-600'
+                }`}
+              >
+                {item.label}
+                {isActive(item.id) && (
+                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-amber-600 rounded-full transition-all duration-300"></div>
+                )}
+              </button>
+            ))}
           </nav>
 
           <div className="hidden xl:flex items-center space-x-6">
@@ -69,27 +103,24 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t shadow-lg">
-              <button onClick={() => scrollToSection('home')} className="block w-full text-left px-3 py-3 text-gray-700 hover:text-amber-600 hover:bg-gray-50 rounded-md transition-colors">
-                Home
-              </button>
-              <button onClick={() => scrollToSection('about')} className="block w-full text-left px-3 py-3 text-gray-700 hover:text-amber-600 hover:bg-gray-50 rounded-md transition-colors">
-                About
-              </button>
-              <button onClick={() => scrollToSection('services')} className="block w-full text-left px-3 py-3 text-gray-700 hover:text-amber-600 hover:bg-gray-50 rounded-md transition-colors">
-                Accommodations
-              </button>
-              <button onClick={() => scrollToSection('security')} className="block w-full text-left px-3 py-3 text-gray-700 hover:text-amber-600 hover:bg-gray-50 rounded-md transition-colors">
-                Security
-              </button>
-              <button onClick={() => scrollToSection('gallery')} className="block w-full text-left px-3 py-3 text-gray-700 hover:text-amber-600 hover:bg-gray-50 rounded-md transition-colors">
-                Gallery
-              </button>
-              <button onClick={() => scrollToSection('booking')} className="block w-full text-left px-3 py-3 text-gray-700 hover:text-amber-600 hover:bg-gray-50 rounded-md transition-colors">
-                Book Now
-              </button>
-              <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-3 py-3 text-gray-700 hover:text-amber-600 hover:bg-gray-50 rounded-md transition-colors">
-                Contact
-              </button>
+              {navigationItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`block w-full text-left px-3 py-3 rounded-md transition-all duration-300 ${
+                    isActive(item.id)
+                      ? 'text-amber-600 bg-amber-50 border-l-4 border-amber-600'
+                      : 'text-gray-700 hover:text-amber-600 hover:bg-gray-50'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <span>{item.label}</span>
+                    {isActive(item.id) && (
+                      <div className="w-2 h-2 bg-amber-600 rounded-full"></div>
+                    )}
+                  </div>
+                </button>
+              ))}
               
               <div className="px-3 py-3 border-t">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
