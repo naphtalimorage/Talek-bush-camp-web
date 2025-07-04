@@ -1,44 +1,54 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import Bushcamp4 from "../assets/bushcamp4.jpg"
+import Bushcamp7 from "../assets/bushcamp7.jpg"
+import Bushcamp10 from "../assets/bushcamp10.jpg"
+import Bushcamp17 from "../assets/bushcamp17.jpg"
+import Bushcamp19 from "../assets/bushcamp19.jpg"
+import Bushcamp20 from "../assets/bushcamp20.jpg"
+import Bushcamp23 from "../assets/bushcamp23.jpg"
+import Bushcamp25 from "../assets/bushcamp25.jpg"
+import Bushcamp26 from "../assets/bushcamp26.jpg"
+
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
 
   const images = [
     {
-      src: 'https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp26,
       alt: 'Masai Mara landscape with acacia trees'
     },
     {
-      src: 'https://images.pexels.com/photos/1178554/pexels-photo-1178554.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp4,
       alt: 'Elephants near safari camp'
     },
     {
-      src: 'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp7,
       alt: 'Safari tent accommodation'
     },
     {
-      src: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp10,
       alt: 'Cottage accommodation'
     },
     {
-      src: 'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp17,
       alt: 'Family room interior'
     },
     {
-      src: 'https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp19,
       alt: 'African wildlife - Lions'
     },
     {
-      src: 'https://images.pexels.com/photos/1670770/pexels-photo-1670770.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp20,
       alt: 'Gazelle in the wild'
     },
     {
-      src: 'https://images.pexels.com/photos/1181605/pexels-photo-1181605.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp25,
       alt: 'Elephants at watering hole'
     },
     {
-      src: 'https://images.pexels.com/photos/1387174/pexels-photo-1387174.jpeg?auto=compress&cs=tinysrgb&w=800&h=600',
+      src: Bushcamp23,
       alt: 'Masai Mara sunset'
     }
   ];

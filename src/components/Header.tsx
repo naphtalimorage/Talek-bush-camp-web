@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { MapPin, Phone, Mail, Menu, X } from 'lucide-react';
+import  { useState, useEffect, useMemo } from 'react';
+import {  Phone, Mail, Menu, X } from 'lucide-react';
+import Logo from "../assets/Talek-Logo.webp"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  const navigationItems = [
+  const navigationItems = useMemo(() => [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'services', label: 'Accommodations' },
@@ -13,7 +14,7 @@ const Header = () => {
     { id: 'gallery', label: 'Gallery' },
     { id: 'booking', label: 'Book Now' },
     { id: 'contact', label: 'Contact' }
-  ];
+  ], []);
 
   // Track active section based on scroll position
   useEffect(() => {
@@ -35,10 +36,10 @@ const Header = () => {
 
     // Add scroll listener
     window.addEventListener('scroll', handleScroll);
-    
+
     // Cleanup
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navigationItems]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -53,11 +54,11 @@ const Header = () => {
     <header className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <div className="flex items-center space-x-2">
-            <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-amber-600" />
+          <div className="flex items-center space-x-1">
+            <img src={Logo} alt="Talek Bush Camp Logo"  className="h-10 w-10 sm:h-14 sm:w-14 "/>
             <div>
-              <h1 className="text-lg sm:text-xl font-bold text-gray-900">Talek Bush Camp</h1>
-              <p className="text-xs sm:text-sm text-gray-600">Masai Mara, Kenya</p>
+              <h1 className="text-lg sm:text-sm font-bold text-gray-900">Talek Bush Camp</h1>
+              <p className="text-xs sm:text-xm text-gray-600">Masai Mara, Kenya</p>
             </div>
           </div>
 
@@ -121,7 +122,7 @@ const Header = () => {
                   </div>
                 </button>
               ))}
-              
+
               <div className="px-3 py-3 border-t">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
                   <Phone className="h-4 w-4" />

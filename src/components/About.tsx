@@ -1,6 +1,5 @@
-import React from 'react';
 import { MapPin, Users, Heart, Award } from 'lucide-react';
-
+import Bushcamp8 from "../assets/bushcamp8.jpg"
 const About = () => {
   return (
     <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
@@ -18,7 +17,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16">
           <div className="order-2 lg:order-1">
             <img
-              src="https://images.pexels.com/photos/1178554/pexels-photo-1178554.jpeg?auto=compress&cs=tinysrgb&w=800&h=600"
+              src={Bushcamp8}
               alt="Safari tent with elephants in background"
               className="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 object-cover"
             />

@@ -1,4 +1,4 @@
-import React from 'react';
+import MaasaiWorriors from "../assets/worrirs.jpeg"
 import { Shield, Eye, Users, Clock, Phone, AlertTriangle, CheckCircle, Lock } from 'lucide-react';
 
 const Security = () => {
@@ -88,7 +88,7 @@ const Security = () => {
             </div>
             <div className="relative">
               <img
-                src="https://images.pexels.com/photos/8828786/pexels-photo-8828786.jpeg?auto=compress&cs=tinysrgb&w=600&h=400"
+                src={MaasaiWorriors}
                 alt="Maasai warriors in traditional attire"
                 className="rounded-lg shadow-lg w-full h-64 sm:h-80 object-cover"
               />
