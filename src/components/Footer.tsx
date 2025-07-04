@@ -2,7 +2,7 @@ import { MapPin, Phone, Mail, Star} from 'lucide-react';
 import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-
+import Logo from "../assets/Talek-Logo.webp"
 
 
 
@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-2 mb-4">
-              <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-amber-400 flex-shrink-0" />
+              <img src={Logo} alt="talek bush camp logo" className="h-6 w-6 sm:h-14 sm:w-14 text-amber-400 flex-shrink-0" />
               <div>
                 <h3 className="text-lg sm:text-xl font-bold">Talek Bush Camp</h3>
                 <p className="text-gray-400 text-sm sm:text-base">Masai Mara, Kenya</p>
