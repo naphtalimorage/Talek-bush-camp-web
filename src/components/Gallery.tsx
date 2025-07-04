@@ -9,7 +9,7 @@ import Bushcamp20 from "../assets/bushcamp20.jpg"
 import Bushcamp23 from "../assets/bushcamp23.jpg"
 import Bushcamp25 from "../assets/bushcamp25.jpg"
 import Bushcamp26 from "../assets/bushcamp26.jpg"
-
+import AnimatedSection from './AnimatedSection';
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -74,34 +74,37 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Gallery
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Discover the beauty of Masai Mara through our collection of stunning photographs 
-            showcasing wildlife, accommodations, and the breathtaking African landscape.
-          </p>
-        </div>
+        <AnimatedSection animation="slideUp">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Gallery
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              Discover the beauty of Masai Mara through our collection of stunning photographs 
+              showcasing wildlife, accommodations, and the breathtaking African landscape.
+            </p>
+          </div>
+        </AnimatedSection>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {images.map((image, index) => (
-            <div
-              key={index}
-              className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              onClick={() => setSelectedImage(index)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
-                  View Image
+            <AnimatedSection key={index} animation="scaleUp" delay={index * 100}>
+              <div
+                className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                onClick={() => setSelectedImage(index)}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-48 sm:h-56 lg:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-sm font-medium bg-black/50 px-3 py-1 rounded-full">
+                    View Image
+                  </div>
                 </div>
               </div>
-            </div>
+            </AnimatedSection>
           ))}
         </div>
 
