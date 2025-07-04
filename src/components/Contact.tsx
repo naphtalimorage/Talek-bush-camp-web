@@ -1,22 +1,25 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
 
 const Contact = () => {
   return (
     <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-            Contact Us
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Get in touch with our team for reservations, inquiries, or to plan your perfect safari experience. 
-            We're here to help make your Masai Mara adventure unforgettable.
-          </p>
-        </div>
+        <AnimatedSection animation="slideUp">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Contact Us
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+              Get in touch with our team for reservations, inquiries, or to plan your perfect safari experience. 
+              We're here to help make your Masai Mara adventure unforgettable.
+            </p>
+          </div>
+        </AnimatedSection>
 
         <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1">
+          <AnimatedSection animation="slideLeft" className="lg:col-span-1">
             <div className="bg-amber-50 rounded-2xl p-6 sm:p-8 h-full">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
               
@@ -79,9 +82,9 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </AnimatedSection>
 
-          <div className="lg:col-span-2">
+          <AnimatedSection animation="slideRight" className="lg:col-span-2">
             <div className="bg-gray-50 rounded-2xl p-6 sm:p-8">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
               
@@ -170,36 +173,38 @@ const Contact = () => {
                 </button>
               </form>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
 
-        <div className="mt-12 sm:mt-16 bg-amber-50 rounded-2xl p-6 sm:p-8">
-          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">
-            Our Management Team
-          </h3>
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div className="text-center">
-              <div className="bg-amber-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center font-bold text-lg sm:text-xl mx-auto mb-4">
-                A
+        <AnimatedSection animation="slideUp" delay={400}>
+          <div className="mt-12 sm:mt-16 bg-amber-50 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">
+              Our Management Team
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-6">
+              <div className="text-center">
+                <div className="bg-amber-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center font-bold text-lg sm:text-xl mx-auto mb-4">
+                  A
+                </div>
+                <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Abdul</h4>
+                <p className="text-gray-600 text-sm sm:text-base">Camp Manager</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">
+                  Specializes in safari arrangements and guest transfers
+                </p>
               </div>
-              <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Abdul</h4>
-              <p className="text-gray-600 text-sm sm:text-base">Camp Manager</p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-2">
-                Specializes in safari arrangements and guest transfers
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="bg-amber-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center font-bold text-lg sm:text-xl mx-auto mb-4">
-                M
+              <div className="text-center">
+                <div className="bg-amber-600 text-white rounded-full w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center font-bold text-lg sm:text-xl mx-auto mb-4">
+                  M
+                </div>
+                <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Mustafa</h4>
+                <p className="text-gray-600 text-sm sm:text-base">Host Manager</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">
+                  Ensures exceptional guest experiences and comfort
+                </p>
               </div>
-              <h4 className="font-semibold text-gray-900 text-sm sm:text-base">Mustafa</h4>
-              <p className="text-gray-600 text-sm sm:text-base">Host Manager</p>
-              <p className="text-xs sm:text-sm text-gray-500 mt-2">
-                Ensures exceptional guest experiences and comfort
-              </p>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
