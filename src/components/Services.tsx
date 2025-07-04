@@ -1,5 +1,8 @@
-import React from 'react';
 import { Bed, Users, Wifi, Car, Utensils, ShieldCheck, TreePine, Waves } from 'lucide-react';
+import Bushamp15 from "../assets/bushcamp15.jpg"
+import Bushamp7 from "../assets/bushcamp7.jpg"
+import Bushamp10 from "../assets/bushcamp10.jpg"
+
 
 const Services = () => {
   const accommodations = [
@@ -8,7 +11,7 @@ const Services = () => {
       beds: '1 Single bed + 1 Extra-large double bed',
       capacity: 3,
       price: 'From $120/night',
-      image: 'https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+      image: Bushamp15,
       features: ['Private bathroom', 'Garden view', 'Mosquito net', 'Free WiFi'],
       description: 'Authentic safari experience with comfort and nature views'
     },
@@ -17,7 +20,7 @@ const Services = () => {
       beds: '1 Single bed + 1 Extra-large double bed',
       capacity: 3,
       price: 'From $150/night',
-      image: 'https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+      image: Bushamp10,
       features: ['Private bathroom', 'Balcony', 'Work desk', 'Seating area'],
       description: 'Comfortable cottage with modern amenities and private balcony'
     },
@@ -26,7 +29,7 @@ const Services = () => {
       beds: '2 Single beds + 2 Extra-large double beds',
       capacity: 6,
       price: 'From $250/night',
-      image: 'https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=600&h=400',
+      image: Bushamp7,
       features: ['Private bathroom', 'Garden view', 'Family-friendly', 'Extra space'],
       description: 'Spacious family accommodation perfect for larger groups'
     }

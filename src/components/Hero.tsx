@@ -1,4 +1,3 @@
-import React from 'react';
 import { Star, MapPin, Wifi, Car, Utensils, Shield } from 'lucide-react';
 
 const Hero = () => {
