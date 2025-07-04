@@ -126,11 +126,11 @@ const Header = () => {
               <div className="px-3 py-3 border-t">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
                   <Phone className="h-4 w-4" />
-                  <span>+254 123 456 789</span>
+                  <span>+254 741 219 994</span>
                 </div>
                 <div className="flex items-center space-x-2 text-sm text-gray-600">
                   <Mail className="h-4 w-4" />
-                  <span>info@talekbushcamp.com</span>
+                  <span>info@wildwonderskenya.com</span>
                 </div>
               </div>
             </div>

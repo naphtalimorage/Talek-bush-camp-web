@@ -1,5 +1,10 @@
-import React from 'react';
-import { MapPin, Phone, Mail, Star, Facebook, Instagram, Twitter } from 'lucide-react';
+import { MapPin, Phone, Mail, Star} from 'lucide-react';
+import { FaInstagram } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+
+
+
 
 const Footer = () => {
   return (
@@ -32,12 +37,12 @@ const Footer = () => {
           <div>
             <h4 className="text-base sm:text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Accommodations</a></li>
-              <li><a href="#gallery" className="hover:text-white transition-colors">Gallery</a></li>
-              <li><a href="#booking" className="hover:text-white transition-colors">Book Now</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/home" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
+              <li><a href="/services" className="hover:text-white transition-colors">Accommodations</a></li>
+              <li><a href="/gallery" className="hover:text-white transition-colors">Gallery</a></li>
+              <li><a href="/booking" className="hover:text-white transition-colors">Book Now</a></li>
+              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 
@@ -58,11 +63,11 @@ const Footer = () => {
             <div className="space-y-3 text-gray-400 text-sm sm:text-base">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>+254 123 456 789</span>
+                <span>+254 741 219 994</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span className="break-all">info@talekbushcamp.com</span>
+                <span className="break-all">info@wildwonderskenya.com</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
@@ -73,14 +78,14 @@ const Footer = () => {
             <div className="mt-6">
               <h5 className="font-semibold mb-3 text-sm sm:text-base">Follow Us</h5>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Facebook className="h-5 w-5" />
+                <a href="/TALEKBUSHCAMP" className="text-gray-400 hover:text-white transition-colors">
+                  <FaFacebook className="h-5 w-5" />
+                </a>
+                <a href="/TalekBushCamp" className="text-gray-400 hover:text-white transition-colors">
+                  <FaInstagram className="h-5 w-5" />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Instagram className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  <Twitter className="h-5 w-5" />
+                  <FaWhatsapp className="h-5 w-5" />
                 </a>
               </div>
             </div>
