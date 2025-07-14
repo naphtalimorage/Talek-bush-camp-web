@@ -1,10 +1,28 @@
 import { Star, MapPin, Wifi, Car, Utensils, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import AuthModal from './AuthModal';
 import AnimatedSection from './AnimatedSection';
 
 const Hero = () => {
+  const { user } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
   const scrollToBooking = () => {
-    const element = document.getElementById('booking');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (user) {
+      const element = document.getElementById('booking');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setShowAuthModal(true);
+    }
+  };
+
+  const handleAuthSuccess = () => {
+    setShowAuthModal(false);
+    setTimeout(() => {
+      const element = document.getElementById('booking');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -107,6 +125,12 @@ const Hero = () => {
             </div>
           </AnimatedSection>
         </div>
+        
+        <AuthModal
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+          onSuccess={handleAuthSuccess}
+        />
       </div>
     </section>
   );

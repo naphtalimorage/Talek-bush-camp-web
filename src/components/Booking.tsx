@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, Plus, Minus, Shield as Child, User, CreditCard, ArrowRight, ArrowLeft, Check, X } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import AuthModal from './AuthModal';
 import Bushcamp6 from "../assets/bushcamp6.jpg";
 import AnimatedSection from './AnimatedSection';
 
@@ -63,6 +65,9 @@ interface BookingConfirmation {
 }
 
 const Booking = () => {
+  const { user } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
   // State to track the current step in the booking flow
   const [currentStep, setCurrentStep] = useState<number>(1);
 
@@ -113,6 +118,20 @@ const Booking = () => {
 
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Check authentication before proceeding with booking
+  const checkAuthAndProceed = () => {
+    if (!user) {
+      setShowAuthModal(true);
+      return false;
+    }
+    return true;
+  };
+
+  const handleAuthSuccess = () => {
+    setShowAuthModal(false);
+    // Continue with the booking flow
+  };
 
   // Calculate nights between check-in and check-out
   const [nights, setNights] = useState<number>(0);
@@ -280,6 +299,11 @@ const Booking = () => {
 
   // Handle step navigation
   const goToNextStep = () => {
+    // Check authentication before proceeding
+    if (!checkAuthAndProceed()) {
+      return;
+    }
+
     if (currentStep === 1) {
       // Validate search form, room selection, and traveler details
       if (!searchData.checkIn || !searchData.checkOut) {
@@ -1134,6 +1158,12 @@ const Booking = () => {
             </p>
           </div>
         </AnimatedSection>
+
+        <AuthModal
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+          onSuccess={handleAuthSuccess}
+        />
 
         <div className="max-w-4xl mx-auto">
           <AnimatedSection animation="slideUp" delay={200}>

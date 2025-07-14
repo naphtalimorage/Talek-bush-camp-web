@@ -1,8 +1,11 @@
 import  { useState, useEffect, useMemo } from 'react';
 import {  Phone, Mail, Menu, X } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
+import UserMenu from './UserMenu';
 import Logo from "../assets/Talek-Logo.webp"
 
 const Header = () => {
+  const { user } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -90,6 +93,7 @@ const Header = () => {
               <Mail className="h-4 w-4" />
               <span>info@talekbushcamp.com</span>
             </div>
+            <UserMenu />
           </div>
 
           <button
@@ -133,6 +137,21 @@ const Header = () => {
                   <span>info@wildwonderskenya.com</span>
                 </div>
               </div>
+              
+              {user && (
+                <div className="px-3 py-3 border-t">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-8 h-8 bg-amber-600 text-white rounded-full flex items-center justify-center font-semibold text-sm">
+                      {user.name.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-gray-900">{user.name}</p>
+                      <p className="text-xs text-gray-500">{user.email}</p>
+                    </div>
+                  </div>
+                  <UserMenu />
+                </div>
+              )}
             </div>
           </div>
         )}

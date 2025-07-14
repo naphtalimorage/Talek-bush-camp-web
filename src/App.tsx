@@ -1,4 +1,5 @@
 import React from 'react';
+import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -13,19 +14,21 @@ import LiveChat from './components/LiveChat';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <Hero />
-      <About />
-      <Services />
-      <Security />
-      <Gallery />
-      <Testimonials />
-      <Booking />
-      <Contact />
-      <Footer />
-      <LiveChat />
-    </div>
+    <AuthProvider>
+      <div className="min-h-screen bg-white">
+        <Header />
+        <Hero />
+        <About />
+        <Services />
+        <Security />
+        <Gallery />
+        <Testimonials />
+        <Booking />
+        <Contact />
+        <Footer />
+        <LiveChat />
+      </div>
+    </AuthProvider>
   );
 }
 

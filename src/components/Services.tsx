@@ -1,10 +1,16 @@
 import { Bed, Users, Wifi, Car, Utensils, ShieldCheck, TreePine, Waves } from 'lucide-react';
+import { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import AuthModal from './AuthModal';
 import Bushamp15 from "../assets/bushcamp15.jpg"
 import Bushamp7 from "../assets/bushcamp7.jpg"
 import Bushamp10 from "../assets/bushcamp10.jpg"
 import AnimatedSection from './AnimatedSection';
 
 const Services = () => {
+  const { user } = useAuth();
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
   const accommodations = [
     {
       name: 'Safari Tent',
@@ -45,8 +51,20 @@ const Services = () => {
   ];
 
   const scrollToBooking = () => {
-    const element = document.getElementById('booking');
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (user) {
+      const element = document.getElementById('booking');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setShowAuthModal(true);
+    }
+  };
+
+  const handleAuthSuccess = () => {
+    setShowAuthModal(false);
+    setTimeout(() => {
+      const element = document.getElementById('booking');
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   return (
@@ -155,6 +173,12 @@ const Services = () => {
             </AnimatedSection>
           </div>
         </AnimatedSection>
+        
+        <AuthModal
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+          onSuccess={handleAuthSuccess}
+        />
       </div>
     </section>
   );

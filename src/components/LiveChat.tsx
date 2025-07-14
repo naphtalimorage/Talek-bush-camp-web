@@ -38,9 +38,9 @@ const LiveChat = () => {
   const botResponses: { [key: string]: string } = {
     // Basic inquiries
     "check availability": "I'd be happy to check availability for you! Please let me know your preferred check-in and check-out dates, and the number of guests.",
-    "safari packages": "We offer various safari packages including full-day game drives, cultural village tours, and photography safaris. Prices start from $80 per person. Would you like specific details?",
+    "safari packages": "We offer various safari packages including full-day game drives, cultural village tours, and photography safaris. Prices start from $80 per person. To make a booking, please use our booking system on the website.",
     "airport transfer": "We provide airport transfer services from Ol Kiombo Airport (16km away) for $50 per vehicle. Our managers Abdul and Mustafa can arrange this for you.",
-    "pricing information": "Our accommodation rates: Safari Tent from $120/night, Cottage from $150/night, Family Room from $250/night. All include breakfast and basic amenities.",
+    "pricing information": "Our accommodation rates: Safari Tent from $120/night, Cottage from $150/night, Family Room from $250/night. All include breakfast and basic amenities. To make a reservation, please use our secure booking system.",
     "contact manager": "You can reach our managers directly: Abdul (+254 741 219 994) specializes in safari arrangements, and Mustafa handles guest services. They're available 24/7.",
 
     // Location information
